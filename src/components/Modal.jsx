@@ -1,4 +1,5 @@
 import { X } from 'lucide-react'
+
 export default function Modal({ abierto, titulo, children, onClose, ancho = '560px' }) {
   if (!abierto) return null
   const cerrarDesdeOverlay = (event) => {

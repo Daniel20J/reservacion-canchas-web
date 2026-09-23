@@ -1,5 +1,6 @@
 import axios from 'axios'
 export const CLAVE_SESION = 'canchas_sesion'
+
 export const obtenerSesion = () => {
   try {
     return JSON.parse(sessionStorage.getItem(CLAVE_SESION))
@@ -8,6 +9,7 @@ export const obtenerSesion = () => {
     return null
   }
 }
+
 export const guardarSesion = (sesion) => sessionStorage.setItem(CLAVE_SESION, JSON.stringify(sesion))
 export const eliminarSesion = () => sessionStorage.removeItem(CLAVE_SESION)
 const api = axios.create({
