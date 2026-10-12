@@ -3,7 +3,7 @@ import { CalendarDays, LoaderCircle, LockKeyhole, Mail } from 'lucide-react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { obtenerError } from '../api/api'
-import { useAuth } from '../auth/AuthContext'
+import { useAuth } from '../auth/useAuth'
 
 export default function LoginPage() {
     const [correo, setCorreo] = useState('admin@canchas.local')

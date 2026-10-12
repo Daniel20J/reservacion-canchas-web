@@ -5,6 +5,7 @@ export default function Modal({ abierto, titulo, children, onClose, ancho = '560
   const cerrarDesdeOverlay = (event) => {
     if (event.target === event.currentTarget) onClose()
   }
+
   return (
     <div className="modal-overlay" onMouseDown={cerrarDesdeOverlay} role="presentation">
       <section className="modal" style={{ maxWidth: ancho }} role="dialog" aria-modal="true" aria-labelledby="modal-title">

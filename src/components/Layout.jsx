@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { CalendarCheck, CalendarDays, House, LogOut, MapPin, Menu, UserCog, Users, X } from 'lucide-react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
-import { useAuth } from '../auth/AuthContext'
+import { useAuth } from '../auth/useAuth'
+
 const opciones = [
   { to: '/', texto: 'Inicio', icono: House },
   { to: '/clientes', texto: 'Clientes', icono: Users },
@@ -14,14 +15,17 @@ export default function Layout() {
   const { usuario, esAdmin, logout } = useAuth()
   const navigate = useNavigate()
   const iniciales = usuario?.nombreCompleto?.split(' ').slice(0, 2).map((nombre) => nombre[0]).join('').toUpperCase() || 'U'
+  
   useEffect(() => {
     document.body.classList.toggle('menu-open', menuAbierto)
     return () => document.body.classList.remove('menu-open')
   }, [menuAbierto])
+  
   const cerrarSesion = () => {
     logout()
     navigate('/login', { replace: true })
   }
+  
   return (
     <div className="app-shell">
       <button className={`sidebar-overlay ${menuAbierto ? 'is-visible' : ''}`} type="button" onClick={() => setMenuAbierto(false)} aria-label="Cerrar menú" />
